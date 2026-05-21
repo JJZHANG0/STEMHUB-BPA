@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #111827;
+  background: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #ffffff;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.section-pad {
+  padding-top: 112px;
+  padding-bottom: 112px;
+  scroll-margin-top: 84px;
+}
+
+.data-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 39, 71, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 39, 71, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.shine-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.28), transparent 65%);
+  transition: transform 0.65s ease;
+}
+
+.shine-button:hover::after {
+  transform: translateX(120%);
+}
+
+.certificate-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 6px solid #c9a227;
+  pointer-events: none;
+}
+
+.certificate-card::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -80px;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 50%;
+}
+
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(201, 162, 39, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(30, 58, 138, 0.22), rgba(201, 162, 39, 0.22));
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.interactive-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #1e3a8a, #c9a227) border-box;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.interactive-card:hover::before,
+.interactive-card:hover::after {
+  opacity: 1;
+}
+
+.timeline-card {
+  min-height: 230px;
+}
+
+.track-card {
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.track-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.track-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.track-card:hover::before {
+  opacity: 1;
+}
+
+.gain-card {
+  min-height: 245px;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.gain-card:hover {
+  background: #ffffff;
+  border-color: rgba(30, 58, 138, 0.35);
+}
+
+.mentor-card,
+.process-card {
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mentor-card:hover,
+.process-card:hover {
+  border-color: rgba(201, 162, 39, 0.75);
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(15, 39, 71, 0.08);
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .section-pad {
+    padding-top: 78px;
+    padding-bottom: 78px;
+  }
+
+  .timeline-card {
+    min-height: auto;
+    padding-left: 42px;
+  }
+}
